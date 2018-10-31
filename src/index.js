@@ -7,7 +7,7 @@ class Square extends React.Component {
         return (
             <button className="squear">
             {
-                /* TODO */
+                this.props.value
             }
             </button>
         )
@@ -16,7 +16,7 @@ class Square extends React.Component {
 
 class Board extends React.Component {
     rednerSquare(i) {
-        return <Square/>
+        return <Square value={i}/>
     }
 
     render() {
