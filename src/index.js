@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 class Square extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            value: null,
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         value: null,
+    //     }
+    // }
 
     render() {
         return (
             // <button className="squear" onClick={function() { alert('click')}}></button>
-            <button className="squear" onClick={() => this.setState({value: 'X'})}>
+            <button className="squear" onClick={() => this.props.onClick()}>
             {
-                this.state.value
+                this.props.value
             }
             </button>
         )
@@ -23,12 +23,28 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            squears: Array(9).fill(null),
+        }
+    }
+
+    handleClick(i) {
+        const squears = this.state.squears.slice()
+        squears[i] = 'X'
+        this.setState({squears: squears})
+    }
+    
     rednerSquare(i) {
-        return <Square value={i}/>
+        return <Square 
+                    value={this.state.squears[i]}
+                    onClick={() => this.handleClick(i)}
+                />
     }
 
     render() {
-        const status = 'Next player X'
+        const status = 'Next player: X'
 
         return (
             <div>
