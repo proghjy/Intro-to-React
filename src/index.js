@@ -1,12 +1,13 @@
 import React from 'react'
+import Button from '@material/react-button/dist'; // /index.js is implied
 import ReactDOM from 'react-dom'
-import './index.css'
+import './App.css';
 
 function Square(props) {
     return (
-        <button className='square' onClick={props.onClick} style={props.isBold ? {fontWeight: 'bold'} : {fontWeight: 'normal'}}>
+        <Button className='square' onClick={props.onClick} style={props.isBold ? {fontWeight: 'bold'} : {fontWeight: 'normal'}}>
             {props.value}
-        </button>
+        </Button>
     )
 }
 
@@ -124,7 +125,7 @@ class Game extends React.Component {
                 'Go to game start'
             return (
                 <li key={move}>
-                    <button onClick={ () => this.jumpTo(move)} style={move === this.state.stepNumber ? {fontWeight: 'bold'} : {fontWeight: 'normal'}}>{desc}</button>
+                    <Button onClick={ () => this.jumpTo(move)} style={move === this.state.stepNumber ? {fontWeight: 'bold'} : {fontWeight: 'normal'}}>{desc}</Button>
                 </li>
             )
         })
@@ -155,7 +156,7 @@ class Game extends React.Component {
                     />
                 </div>
                 <div className="game-info">
-                    <div>{status} <button onClick={ () => this.toggleOrder()}>{order}</button></div>
+                    <div>{status} <Button onClick={ () => this.toggleOrder()}>{order}</Button></div>
                     <ol>{moves}</ol>
                 </div>
             </div>

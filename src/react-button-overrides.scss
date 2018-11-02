@@ -1,0 +1,13 @@
+// ./react-button-overrides.scss
+
+@import "@material/button/mixins";
+
+.button-alternate {
+  @include mdc-button-container-fill-color(lightblue);
+}
+
+.square {
+    @include mdc-button--outlined_;
+    @include mdc-button-outline-width(1px);
+    @include mdc-button-outline-color(primary);
+}
