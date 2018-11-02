@@ -40,25 +40,21 @@ class Board extends React.Component {
                 />
     }
 
+    createSquares() {
+        let rows = []
+        for( let row=0; row<3; row++) {
+            let cols = []
+            for( let col=0; col<3; col++) {
+                cols.push(this.rednerSquare(row*3 + col))
+            }   
+            rows.push(<div className='board-row'>{cols}</div>)
+        }
+        return <div>rows</div>
+    }
+
     render() {
         return (
-            <div>
-                <div className='board-row'>
-                    {this.rednerSquare(0)}
-                    {this.rednerSquare(1)}
-                    {this.rednerSquare(2)}
-                </div>
-                <div className='board-row'>
-                    {this.rednerSquare(3)}
-                    {this.rednerSquare(4)}
-                    {this.rednerSquare(5)}
-                </div>
-                <div className='board-row'>
-                    {this.rednerSquare(6)}
-                    {this.rednerSquare(7)}
-                    {this.rednerSquare(8)}
-                </div>
-            </div>
+            this.createSquares()
         )
     }
 }
